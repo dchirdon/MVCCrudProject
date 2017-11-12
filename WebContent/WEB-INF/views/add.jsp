@@ -43,27 +43,11 @@
 
 </div>
 <p class="row justify-content-center">
-<a href="home.do">Home</a>
+<a href="home.do"> Retrun Home</a>
 </p></p>
   </div>
 </div>
 
-
-
-<div class="row justify-content-center"> 
-
-<form:form action="addItem.do" method="post" modelAttribute="item">
-
- Type: <form:input path="type"/><form:errors path="type"/><br>
- Value: <form:input path="value"/><form:errors path="value"/><br>
- Name:	<form:input path="name"/><form:errors path="name"/><br> 
-<input class="btn btn-success" type="submit" value="Add"/>
-</form:form>
-
-</div>
-<p class="row justify-content-center">
-<a href="home.do">Home</a>
-</p>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous"></script>
