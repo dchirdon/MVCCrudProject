@@ -12,24 +12,33 @@
 	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
 	crossorigin="anonymous">
 </head>
+
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand">Navbar</a>
+  <form:form action="getItem.do" method="post"
+					modelAttribute="itemIdForm">
+
+					<form:input path="id" />
+					<form:errors path="id" />
+
+					<input type="submit" value="Enter card number:">
+
+				</form:form>
+				
+</nav>
+<!-- <div class="container" color="grey">
+	<h2>WELCOME TO YOUR VIRTUAL WALLET</h2>
+</div> -->
 <link rel="stylesheet" href="styles.css/styles.css">
 <body>
-	<div class="container" align="center">
-		<div class="row">
-			<div class="col-sm">
-
-				<h2>WELCOME TO YOUR VIRTUAL WALLET</h2>
-
 				<form:form action="getItem.do" method="post"
 					modelAttribute="itemIdForm">
 
 					<form:input path="id" />
 					<form:errors path="id" />
 
-					<input type="submit" value="See your card information">
+					<input type="submit" value="Enter card number:">
 
-					<!-- <input type="number" name="giraffeId"> -->
-					<!-- <input type="submit" value="Get a Giraffe"> -->
 				</form:form>
 
 				<%-- <c:if test="${not empty bestGiraffe }">
@@ -39,13 +48,13 @@ The best giraffe is: ${bestGiraffe }
 					<p>
 						<a href="add.do">Add a card</a>
 					</p>
-				</div>
+				
 
 
 				<p>
 					All of your cards: <br>
 					<c:forEach var="item" items="${list }">
-						<a href="info.do?id=${wallet.id}">${wallet.type }</a>
+						<a href="info.do?id=${item.id}">${item.type }</a>
 						<br>
 						<form method="post" action="delete.do">
 							<input type="submit" value="Delete"> <input type="hidden"

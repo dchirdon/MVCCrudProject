@@ -19,14 +19,14 @@ import data.Item;
 import data.WalletDAO;
 
 
-@SessionAttributes("bestWallet")
+@SessionAttributes("yourWallet")
 @Controller
 public class WalletController {
 
 	@Autowired
 	WalletDAO dao;
 
-	@ModelAttribute("bestWallet")
+	@ModelAttribute("yourWallet")
 	public Item newItem() {
 		return new Item();
 	}

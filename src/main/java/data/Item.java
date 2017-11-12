@@ -15,42 +15,48 @@ private int id;
  private double value;
 
  private String imageURL;
- 
- public String getImageURL() {
-	return imageURL;
-}
-
-public void setImageURL(String imageURL) {
-	this.imageURL = imageURL;
-}
 
 public Item(){
  }
  
-public Item(String name, int id, double neckLength, String imageURL) {
+public Item(String type, int id, double value, String imageURL) {
 	super();
 	this.type = type;
 	this.id = id;
 	this.value = value;
 	this.imageURL = imageURL;
 }
-public String getType() {
-	return type;
-}
-public void setType(String type) {
-	this.type = type;
-}
+
 public int getId() {
 	return id;
 }
+
 public void setId(int id) {
 	this.id = id;
 }
-public double value() {
+
+public String getType() {
+	return type;
+}
+
+public void setType(String type) {
+	this.type = type;
+}
+
+public double getValue() {
 	return value;
 }
-public void setNeckLength(double value) {
+
+public void setValue(double value) {
 	this.value = value;
+}
+
+public String getImageURL() {
+	return imageURL;
+}
+
+public void setImageURL(String imageURL) {
+	this.imageURL = imageURL;
 }
 
 @Override
