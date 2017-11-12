@@ -1,62 +1,65 @@
 package data;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-	import java.util.ArrayList;
-	import java.util.HashMap;
-	import java.util.List;
-	import java.util.Map;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Repository;
 
-	import org.springframework.context.annotation.Primary;
-	import org.springframework.stereotype.Repository;
+@Repository // could also be @Component but can only implement one interface
+@Primary
+public class WalletDAOInMemoryImpl implements WalletDAO {
+	// Giraffes should be stored in a map
 
-	@Repository // could also be @Component but can only implement one interface
-	@Primary
-	public class WalletDAOInMemoryImpl implements WalletDAO {
-		private Map<Integer, Item> items;
+	private Map<Integer, Item> items;
+	
+	private int id = 1;
 
-		public WalletDAOInMemoryImpl() {
-			items = new HashMap<>();
-			loadSampleItems();
-		}
+	public WalletDAOInMemoryImpl() {
+		items = new HashMap<>();
+		loadSampleGiraffes();
+	}
 
-		public WalletDAOInMemoryImpl(Map<Integer, Item> items) {
-			items = new HashMap<>();
-			loadSampleWallet();
-		}
+	public WalletDAOInMemoryImpl(Map<Integer, Item> items) {
+		items = new HashMap<>();
+		loadSampleGiraffes();
+	}
 
-		private void loadSampleGiraffes() {
-			items.put(1, new Item("Jerry", 1, 14.3));
-			items.put(2, new Item("Gina", 2, 15));
-			items.put(3, new Item("Dobby", 3, 8));
-			return;
-		}
+	private void loadSampleGiraffes() {
+		items.put(id, new Item("Credit Card", id++, 14.3, null));
+		items.put(id, new Item("Business Card", id++, 15, null));
+		items.put(id, new Item("Debit Card", id++, 8, null));
+		return;
+	}
 
-		@Override
-		public Item addGiraffe(Item i) {
-			return items.put(i.getId(), i);
-
-		}
-
-		@Override
-		public List<Item> getAllItems() {
-			return new ArrayList<Item>(items.values());
-		}
-
-		@Override
-		public Item getWalletById(int id) {
-			return items.get(id);
-		}
-
-		@Override
-		public Item deleteItem(Item i) {
-			return items.remove(i.getId());
-
-		}
-
-		@Override
-		public Item updateItem(Item i) {
-			return items.put(i.getId(), i);
-		}
+	@Override
+	public Item addItem(Item i) {
+		i.setId(id++);
+		return items.put(i.getId(), i);
+		
 
 	}
 
+	@Override
+	public List<Item> getAllItems() {
+		return new ArrayList<Item>(items.values());
+	}
 
+	@Override
+	public Item getItemById(int id) {
+		return items.get(id);
+	}
+
+	@Override
+	public Item deleteItem(Item i) {
+		return items.remove(i.getId());
+
+	}
+
+	@Override
+	public Item editItem(Item i) {
+		return items.put(i.getId(), i);
+	}
+
+}
