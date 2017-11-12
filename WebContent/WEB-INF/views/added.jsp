@@ -9,7 +9,7 @@
 <body>
 ${item.type }<br>
 ${item.value }<br>
-${item.imageURL }
+${item.name }
 
 <p>
 <a href="home.do">Home</a>

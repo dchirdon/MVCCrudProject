@@ -7,10 +7,10 @@ import java.util.Map;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
-@Repository // could also be @Component but can only implement one interface
+@Repository 
 @Primary
 public class WalletDAOInMemoryImpl implements WalletDAO {
-	// Giraffes should be stored in a map
+	
 
 	private Map<Integer, Item> items;
 	
@@ -27,9 +27,9 @@ public class WalletDAOInMemoryImpl implements WalletDAO {
 	}
 
 	private void loadSampleItems() {
-		items.put(id, new Item("Credit Card", id++, 30000, null));
-		items.put(id, new Item("Gift Card", id++, 200, null));
-		items.put(id, new Item("Debit Card", id++, 3050, null));
+		items.put(id, new Item("Credit Card", id++, 30000, "Wells Fargo"));
+		items.put(id, new Item("Gift Card", id++, 200, "Amazon"));
+		items.put(id, new Item("Debit Card", id++, 3050, "Navy Federal"));
 		return;
 	}
 

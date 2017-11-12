@@ -19,21 +19,22 @@
 	<h2>WELCOME TO YOUR VIRTUAL WALLET</h2>
 </div> -->
 <body>
-<nav id="myNavBar" class="navbar navbar-light bg-light justify-content-between">
-<a class="navbar-brand">WELCOME TO YOUR VIRTUAL WALLET</a> <form:form
-	action="getItem.do" method="post" modelAttribute="itemIdForm">
+	<nav id="myNavBar"
+		class="navbar navbar-light bg-light justify-content-between"> <a
+		class="navbar-brand">WELCOME TO YOUR VIRTUAL WALLET</a> <form:form
+		action="getItem.do" method="post" modelAttribute="itemIdForm">
 
-	<form:input path="id" />
-	<form:errors path="id" />
+		<form:input path="id" />
+		<form:errors path="id" />
 
-	<input type="submit" value="Enter card number:">
+		<input type="submit" value="Enter card number:">
 
-</form:form>
-<ul class="nav navbar-nav navbar-right">
-	<li><a href="add.do">Add A New Card</a></li>
-</ul>
+	</form:form>
+	<ul class="nav navbar-nav navbar-right">
+		<li><a href="add.do">Add A New Card</a></li>
+	</ul>
 
-</nav>
+	</nav>
 	<%-- <form:form action="getItem.do" method="post"
 		modelAttribute="itemIdForm">
 
@@ -43,38 +44,86 @@
 		<input type="submit" value="Enter card number:">
 
 	</form:form> --%>
-	
-	
 
-	<div class="container">
-    <div class="row">
-        <div class="span12" style="float:right">
-            <div class="span7" style="float:left;">
-                <!-- centered stuff goes here-->
-     
-		<!-- <p>
-			<a href="add.do">Add a card</a>
-		</p> -->
-		<p>
-			<h4>Your cards: </h4><br>
+
+	<h4>Your cards:</h4>
+	<br>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Type</th>
+				<th scope="col">Bank</th>
+				<th scope="col">Balance</th>
+				<th scope="col">Delete</th>
+				<th scope="col">Edit</th>
+			</tr>
+		</thead>
+		<tbody>
+			<%-- 		<tr>
+			<th scope="row">${item.id}</th>
+			<td>${item.type}</td>
+			<td>${item.name}</td>
+			<td></td>
+		</tr> --%>
 			<c:forEach var="item" items="${list }">
-				<a href="info.do?id=${item.id}">${item.type }</a>
-				<br>
-				<form method="post" action="delete.do">
-					<input type="submit" value="Delete"> <input type="hidden"
-						name="id" value="${item.id }">
-				</form>
-				<form method="post" action="edit.do">
-					<input type="submit" value="Edit"> <input type="hidden"
-						name="id" value="${item.id }">
-				</form>
+				<tr>
+					<td><a href="info.do?id=${item.id}">${item.id }
+							</a></td>
+					<td>${item.type }</td>
+					<td>${item.name }</td>
+					<td>${item.value }</td>
+
+					<td>
+
+						<form method="post" action="delete.do">
+							<input type="submit" value="Delete"> <input type="hidden"
+								name="id" value="${item.id }">
+						</form>
+					</td>
+					<td>
+						<form method="post" action="edit.do">
+							<input type="submit" value="Edit"> <input type="hidden"
+								name="id" value="${item.id }">
+						</form>
+					</td>
+
+				</tr>
 			</c:forEach>
-		</p>
-	</div>
-	       </div>
-        </div>
-    </div>
-</div>
+		</tbody>
+	</table>
+	<%-- <table class="table">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Type</th>
+				<th scope="col">Bank</th>
+				<th scope="col">Balance</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th scope="row">${item.id}</th>
+				<td>${item.type}</td>
+				<td>${item.name}</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">2</th>
+				<td>Jacob</td>
+				<td>Thornton</td>
+				<td>@fat</td>
+			</tr>
+			<tr>
+				<th scope="row">3</th>
+				<td>Larry</td>
+				<td>the Bird</td>
+				<td>@twitter</td>
+			</tr>
+		</tbody>
+	</table>
+ --%>
+
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

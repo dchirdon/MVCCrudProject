@@ -20,8 +20,8 @@
  Value: <form:input path="value" />
 		<form:errors path="value" />
 		<br>
- Image URL:	<form:input path="imageURL" />
-		<form:errors path="imageURL" />
+ Image URL:	<form:input path="name" />
+		<form:errors path="name" />
 		<br>
 
 		<form:hidden path="id" />

@@ -19,7 +19,7 @@ private int id;
 public Item(){
  }
  
-public Item(String type, int id, double value, String imageURL) {
+public Item(String type, int id, double value, String name) {
 	super();
 	this.type = type;
 	this.id = id;

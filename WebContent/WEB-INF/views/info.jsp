@@ -10,7 +10,7 @@
 
 ${item.type }<br>
 ${item.value }<br>
-${item.imageURL }<br>
+${item.name }<br>
 
 
 <p>
