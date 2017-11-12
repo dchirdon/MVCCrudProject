@@ -15,9 +15,13 @@
 
  Type: <form:input path="type"/><form:errors path="type"/><br>
  Value: <form:input path="value"/><form:errors path="value"/><br>
- Image URL:	<form:input path="imageURL"/><form:errors path="imageURL"/><br>
+ <%-- Image URL:	<form:input path="imageURL"/><form:errors path="imageURL"/><br> --%>
 <input type="submit" value="Add"/>
 </form:form>
+
+<p>
+<a href="home.do">Home</a>
+</p>
 
 </body>
 </html>

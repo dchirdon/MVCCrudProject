@@ -11,73 +11,81 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
 	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
 	crossorigin="anonymous">
+<link rel="stylesheet" href="styles.css/styles.css">
 </head>
 
-<nav class="navbar navbar-light bg-light justify-content-between">
-  <a class="navbar-brand">Navbar</a>
-  <form:form action="getItem.do" method="post"
-					modelAttribute="itemIdForm">
 
-					<form:input path="id" />
-					<form:errors path="id" />
-
-					<input type="submit" value="Enter card number:">
-
-				</form:form>
-				
-</nav>
 <!-- <div class="container" color="grey">
 	<h2>WELCOME TO YOUR VIRTUAL WALLET</h2>
 </div> -->
-<link rel="stylesheet" href="styles.css/styles.css">
 <body>
-				<form:form action="getItem.do" method="post"
-					modelAttribute="itemIdForm">
+<nav id="myNavBar" class="navbar navbar-light bg-light justify-content-between">
+<a class="navbar-brand">WELCOME TO YOUR VIRTUAL WALLET</a> <form:form
+	action="getItem.do" method="post" modelAttribute="itemIdForm">
 
-					<form:input path="id" />
-					<form:errors path="id" />
+	<form:input path="id" />
+	<form:errors path="id" />
 
-					<input type="submit" value="Enter card number:">
+	<input type="submit" value="Enter card number:">
 
-				</form:form>
+</form:form>
+<ul class="nav navbar-nav navbar-right">
+	<li><a href="add.do">Add A New Card</a></li>
+</ul>
 
-				<%-- <c:if test="${not empty bestGiraffe }">
-The best giraffe is: ${bestGiraffe }
-</c:if> --%>
-				<div class="col-sm">
-					<p>
-						<a href="add.do">Add a card</a>
-					</p>
-				
+</nav>
+	<%-- <form:form action="getItem.do" method="post"
+		modelAttribute="itemIdForm">
 
+		<form:input path="id" />
+		<form:errors path="id" />
 
-				<p>
-					All of your cards: <br>
-					<c:forEach var="item" items="${list }">
-						<a href="info.do?id=${item.id}">${item.type }</a>
-						<br>
-						<form method="post" action="delete.do">
-							<input type="submit" value="Delete"> <input type="hidden"
-								name="id" value="${item.id }">
-						</form>
-						<form method="post" action="edit.do">
-							<input type="submit" value="Edit"> <input type="hidden"
-								name="id" value="${item.id }">
-						</form>
-					</c:forEach>
-				</p>
-			</div>
+		<input type="submit" value="Enter card number:">
 
-			<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-				integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-				crossorigin="anonymous"></script>
-			<script
-				src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
-				integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-				crossorigin="anonymous"></script>
-			<script
-				src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
-				integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-				crossorigin="anonymous"></script>
+	</form:form> --%>
+	
+	
+
+	<div class="container">
+    <div class="row">
+        <div class="span12" style="float:right">
+            <div class="span7" style="float:left;">
+                <!-- centered stuff goes here-->
+     
+		<!-- <p>
+			<a href="add.do">Add a card</a>
+		</p> -->
+		<p>
+			<h4>Your cards: </h4><br>
+			<c:forEach var="item" items="${list }">
+				<a href="info.do?id=${item.id}">${item.type }</a>
+				<br>
+				<form method="post" action="delete.do">
+					<input type="submit" value="Delete"> <input type="hidden"
+						name="id" value="${item.id }">
+				</form>
+				<form method="post" action="edit.do">
+					<input type="submit" value="Edit"> <input type="hidden"
+						name="id" value="${item.id }">
+				</form>
+			</c:forEach>
+		</p>
+	</div>
+	       </div>
+        </div>
+    </div>
+</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+		integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+		integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+		crossorigin="anonymous"></script>
 </body>
 </html>

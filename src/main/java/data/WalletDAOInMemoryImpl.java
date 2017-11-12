@@ -14,22 +14,22 @@ public class WalletDAOInMemoryImpl implements WalletDAO {
 
 	private Map<Integer, Item> items;
 	
-	private int id = 1;
+	private int id = 1234;
 
 	public WalletDAOInMemoryImpl() {
 		items = new HashMap<>();
-		loadSampleGiraffes();
+		loadSampleItems();
 	}
 
 	public WalletDAOInMemoryImpl(Map<Integer, Item> items) {
 		items = new HashMap<>();
-		loadSampleGiraffes();
+		loadSampleItems();
 	}
 
-	private void loadSampleGiraffes() {
-		items.put(id, new Item("Credit Card", id++, 14.3, null));
-		items.put(id, new Item("Business Card", id++, 15, null));
-		items.put(id, new Item("Debit Card", id++, 8, null));
+	private void loadSampleItems() {
+		items.put(id, new Item("Credit Card", id++, 30000, null));
+		items.put(id, new Item("Gift Card", id++, 200, null));
+		items.put(id, new Item("Debit Card", id++, 3050, null));
 		return;
 	}
 

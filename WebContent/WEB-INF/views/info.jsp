@@ -9,7 +9,7 @@
 <body>
 
 ${item.type }<br>
-${wallet.value }<br>
+${item.value }<br>
 ${item.imageURL }<br>
 
 

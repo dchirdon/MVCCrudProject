@@ -37,11 +37,10 @@ public class WalletController {
 	}
 
 	@RequestMapping(path = "info.do")
-	public ModelAndView getItemById(@RequestParam("id") Integer id /*
-																		 * ,
-																		 * 
-																		 * @ModelAttribute("bestGiraffe") Giraffe best
-																		 */) {
+	public ModelAndView getItemById(@RequestParam("id") Integer id 
+																		
+																		
+																		 ) {
 		ModelAndView mv = new ModelAndView("info");
 		Item best = dao.getItemById(id);
 		mv.addObject("item", best);
