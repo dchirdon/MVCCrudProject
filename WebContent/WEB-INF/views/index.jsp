@@ -73,7 +73,7 @@
 							</a></td>
 					<td>${item.type }</td>
 					<td>${item.name }</td>
-					<td>${item.value }</td>
+					<td>$ ${item.value }</td>
 
 					<td>
 						<form method="post" action="edit.do">
