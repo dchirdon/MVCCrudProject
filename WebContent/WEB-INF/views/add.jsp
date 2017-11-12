@@ -28,7 +28,7 @@
   --%>
 
 
-<div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+<div class="card text-white bg-dark mb-3 container center_div" style="max-width: 20rem;">
   <div class="card-header">Enter Card Information:</div>
   <div class="card-body">
     <p class="card-text"><div class="row justify-content-center"> 

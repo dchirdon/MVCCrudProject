@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+<div class="card text-white bg-danger mb-3 container center_div" style="max-width: 20rem;">
   <div class="card-header">${type} Deleted!</div>
   <div class="card-body">
     
