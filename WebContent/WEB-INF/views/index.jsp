@@ -31,7 +31,7 @@
 
 	</form:form>
 	<ul class="nav navbar-nav navbar-right">
-		<li><a href="add.do">Add A New Card</a></li>
+		<li><a href="add.do">Add a new card</a></li>
 	</ul>
 
 	</nav>
