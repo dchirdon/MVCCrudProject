@@ -1,18 +1,18 @@
 body {
-	 /* background-image: url("https://erandika.files.wordpress.com/2012/09/11276237-background-of-old-paper-and-a-wallet-with-hundred-dollar-bills1.jpg");
+	 background-image: url("http://www.bronxtonvault.com/wp-content/uploads/2015/01/Background.jpg");
 	 background-size: 100%;
-	 position:center; */ 
+	 position:center;
 	 font-family: 'Oswald', sans-serif !important;
 }
 title {
-	font-size: large;
+	font-size: 200%;
 	font-style: italic;
 }
 h2 {
 	color: blue;
 }
 h4 {
-	color: grey;
+	color: lightgrey;
 }
 nav {
 	background-color: darkgrey;

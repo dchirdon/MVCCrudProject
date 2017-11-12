@@ -18,7 +18,7 @@
 <!-- <div class="container" color="grey">
 	<h2>WELCOME TO YOUR VIRTUAL WALLET</h2>
 </div> -->
-<body>
+<body><br>
 	<nav id="myNavBar"
 		class="navbar navbar-light bg-light justify-content-between"> <a
 		class="navbar-brand">WELCOME TO YOUR VIRTUAL WALLET</a> <form:form

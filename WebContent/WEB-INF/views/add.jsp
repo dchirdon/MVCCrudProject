@@ -43,7 +43,7 @@
 
 </div>
 <p class="row justify-content-center">
-<a href="home.do"> Retrun Home</a>
+<a href="home.do"> Return Home</a>
 </p></p>
   </div>
 </div>
