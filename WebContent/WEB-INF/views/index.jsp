@@ -45,8 +45,9 @@
 
 	</form:form> --%>
 
-
+	<h4></h4><br>
 	<h4>Your cards:</h4>
+	<br>
 	<br>
 	<table class="table">
 		<thead>
@@ -55,8 +56,8 @@
 				<th scope="col">Type</th>
 				<th scope="col">Bank</th>
 				<th scope="col">Balance</th>
-				<th scope="col">Delete</th>
 				<th scope="col">Edit</th>
+				<th scope="col">Delete</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -67,7 +68,7 @@
 			<td></td>
 		</tr> --%>
 			<c:forEach var="item" items="${list }">
-				<tr>
+				<tr scope="row">
 					<td><a href="info.do?id=${item.id}">${item.id }
 							</a></td>
 					<td>${item.type }</td>
@@ -75,15 +76,15 @@
 					<td>${item.value }</td>
 
 					<td>
-
-						<form method="post" action="delete.do">
-							<input type="submit" value="Delete"> <input type="hidden"
+						<form method="post" action="edit.do">
+							<input class="btn btn-success" type="submit" value="Edit"> <input type="hidden"
 								name="id" value="${item.id }">
 						</form>
 					</td>
 					<td>
-						<form method="post" action="edit.do">
-							<input type="submit" value="Edit"> <input type="hidden"
+
+						<form method="post" action="delete.do">
+							<input class="btn btn-danger" type="submit" value="Delete"> <input type="hidden"
 								name="id" value="${item.id }">
 						</form>
 					</td>

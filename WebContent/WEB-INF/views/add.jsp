@@ -9,14 +9,29 @@
 <title>Enter Card Data</title>
 </head>
 <body>
-<h3>Enter data about your credit/debit card information</h3>
+
+<!-- <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Enter data about your credit/debit card information</div>
+  <div class="card-body"> -->
+    <%-- <form:form action="addItem.do" method="post" modelAttribute="item">
+
+ Type: <form:input path="type"/><form:errors path="type"/><br>
+ Value: <form:input path="value"/><form:errors path="value"/><br>
+ Name:	<form:input path="name"/><form:errors path="name"/><br> 
+<input class="btn btn-success" type="submit" value="Add"/>
+</form:form>
+  --%>
+
+
+
+<h3>Enter your credit/debit card information</h3>
 
 <form:form action="addItem.do" method="post" modelAttribute="item">
 
  Type: <form:input path="type"/><form:errors path="type"/><br>
  Value: <form:input path="value"/><form:errors path="value"/><br>
- Name:	<form:input path="name"/><form:errors path="name"/><br> --%>
-<input type="submit" value="Add"/>
+ Name:	<form:input path="name"/><form:errors path="name"/><br> 
+<input class="btn btn-success" type="submit" value="Add"/>
 </form:form>
 
 <p>
