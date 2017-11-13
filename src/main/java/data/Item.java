@@ -7,10 +7,10 @@ import javax.validation.constraints.Size;
 public class Item {
 private int id;
 	
-@Size(min=9, max=10 , message="Please enter type, Debit Card, Credit Card or Gift Card")
+@Size(min=5, max=15 , message="Please enter type, Debit Card, Credit Card or Gift Card")
  private String type;
 
-@Min(value=0, message="Minimum value is $0.")
+@Min(value=-100, message="Minimum value is $-100.")
 @Max(value=1_000_000, message="Max value is the bank max of $1,000,000.")
  private double value;
 

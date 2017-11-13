@@ -31,9 +31,9 @@ public class WalletController {
 		return new Item();
 	}
 
-	// @RequestMapping(path="home.do", method=RequestMethod.GET)
+	
 	public String home() {
-		return "index"; // jsp file
+		return "index"; 
 	}
 
 	@RequestMapping(path = "info.do")
@@ -50,9 +50,8 @@ public class WalletController {
 
 	@RequestMapping(path = "delete.do")
 	public ModelAndView delete(@RequestParam("id") Integer id /*
-																 * ,
-																 * 
-																 * @ModelAttribute("bestGiraffe") Giraffe best
+																 
+																
 																 */) {
 		ModelAndView mv = new ModelAndView("deleted");
 
@@ -66,9 +65,7 @@ public class WalletController {
 
 	@RequestMapping(path = "edit.do", params = "id")
 	public ModelAndView edit(@RequestParam("id") Integer id /*
-															 * ,
-															 * 
-															 * @ModelAttribute("bestGiraffe") Giraffe best
+															 
 															 */) {
 		ModelAndView mv = new ModelAndView("edit");
 
@@ -95,7 +92,7 @@ public class WalletController {
 
 	@RequestMapping(path = "getItem.do", method = RequestMethod.POST)
 	public ModelAndView getItemByIdForm(@Valid @ModelAttribute("itemIdForm") ItemIdForm f, Errors e) {
-		// @ModelAttribute("bestGiraffe")Giraffe best
+		
 		ModelAndView mv = new ModelAndView("index");
 		if (e.hasErrors()) {
 			mv.setViewName("index");
@@ -103,14 +100,14 @@ public class WalletController {
 		}
 		mv.setViewName("info");
 
-		// Giraffe g = dao.getGiraffeById(id);
+		
 		Item best = dao.getItemById(f.getId());
 		mv.addObject("item", best);
 		return mv;
 	}
 
 	@RequestMapping(path = "add.do", method = RequestMethod.GET)
-	public String addGiraffe(Model model) {
+	public String addItem(Model model) {
 		Item i = new Item();
 		model.addAttribute("item", i);
 
