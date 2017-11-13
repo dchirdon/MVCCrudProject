@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 public class WalletDAOInMemoryImpl implements WalletDAO {
 	
 
-	private Map<Integer, Item> items;
+	private Map<Integer, Item> items; //This is a test edit
 	
 	private int id = 1234;
 
