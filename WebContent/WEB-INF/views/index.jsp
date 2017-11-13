@@ -38,6 +38,7 @@
 	</ul>
 
 	</nav>
+	
 	<%-- <form:form action="getItem.do" method="post"
 		modelAttribute="itemIdForm">
 
@@ -96,38 +97,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<%-- <table class="table">
-		<thead>
-			<tr>
-				<th scope="col">#</th>
-				<th scope="col">Type</th>
-				<th scope="col">Bank</th>
-				<th scope="col">Balance</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<th scope="row">${item.id}</th>
-				<td>${item.type}</td>
-				<td>${item.name}</td>
-				<td></td>
-			</tr>
-			<tr>
-				<th scope="row">2</th>
-				<td>Jacob</td>
-				<td>Thornton</td>
-				<td>@fat</td>
-			</tr>
-			<tr>
-				<th scope="row">3</th>
-				<td>Larry</td>
-				<td>the Bird</td>
-				<td>@twitter</td>
-			</tr>
-		</tbody>
-	</table>
- --%>
-
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

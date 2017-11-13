@@ -2,11 +2,6 @@ package controllers;
 
 import javax.validation.constraints.NotNull;
 
-/**
- * 
- * @author davidchirdon
- *
- */
 
 public class ItemIdForm {
 	@NotNull
