@@ -10,18 +10,19 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
 	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
-	crossorigin="anonymous">
-<link rel="stylesheet" href="styles.css/styles.css">
+	crossorigin="anonymous"/>
 </head>
+<link rel="stylesheet" href="styles.css/styles.css">
 
 
 <!-- <div class="container" color="grey">
 	<h2>WELCOME TO YOUR VIRTUAL WALLET</h2>
 </div> -->
-<body><br>
-	<nav id="myNavBar"
-		class="navbar navbar-light bg-light justify-content-between"> <a
-		class="navbar-brand">WELCOME TO YOUR VIRTUAL WALLET</a> <form:form
+<body style="font-family:script; color:lightgrey; font-size: 20px;">
+	<br>
+	<nav 
+		class="navbar navbar-light bg-grey justify-content-between"> 
+		<a style="font-family:Papyrus; color:black; font-size: 30px; font-weight: bold;" class="navbar-brand">WELCOME TO YOUR VIRTUAL WALLET</a> <form:form
 		action="getItem.do" method="post" modelAttribute="itemIdForm">
 
 		<form:input path="id" />
@@ -45,7 +46,8 @@
 
 	</form:form> --%>
 
-	<h4></h4><br>
+	<h4></h4>
+	<br>
 	<h4>Your cards:</h4>
 	<br>
 	<br>
@@ -69,23 +71,22 @@
 		</tr> --%>
 			<c:forEach var="item" items="${list }">
 				<tr scope="row">
-					<td><a href="info.do?id=${item.id}">${item.id }
-							</a></td>
+					<td><a href="info.do?id=${item.id}">${item.id } </a></td>
 					<td>${item.type }</td>
 					<td>${item.name }</td>
 					<td>$ ${item.value }</td>
 
 					<td>
 						<form method="post" action="edit.do">
-							<input class="btn btn-success" type="submit" value="Edit"> <input type="hidden"
-								name="id" value="${item.id }">
+							<input class="btn btn-success" type="submit" value="Edit">
+							<input type="hidden" name="id" value="${item.id }">
 						</form>
 					</td>
 					<td>
 
 						<form method="post" action="delete.do">
-							<input class="btn btn-danger" type="submit" value="Delete"> <input type="hidden"
-								name="id" value="${item.id }">
+							<input class="btn btn-danger" type="submit" value="Delete">
+							<input type="hidden" name="id" value="${item.id }">
 						</form>
 					</td>
 

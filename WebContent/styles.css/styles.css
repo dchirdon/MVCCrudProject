@@ -1,22 +1,15 @@
 body {
+	
 	 background-image: url("http://www.bronxtonvault.com/wp-content/uploads/2015/01/Background.jpg");
 	 background-size: 100%;
 	 position:center;
 	 font-family: 'Oswald', sans-serif !important;
+	 font-color: lightgrey; 
 }
-title {
-	font-size: 200%;
-	font-style: italic;
-}
-h2 {
-	color: blue;
-}
+
 h4 {
 	color: lightgrey;
 }
-body br nav {
-	background-color: darkgrey;
-}
-.myNavBar {
-	background-color: darkgrey;
+nav {
+	font-style: italics;
 }
