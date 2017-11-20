@@ -118,8 +118,8 @@ public class WalletDaoCRUDimpl implements WalletDAO {
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
 				id = rs.getInt(1);
-				double value = rs.getInt(2);
-				String type = rs.getString(3);
+				String type = rs.getString(2);
+				double value = rs.getDouble(3);
 				String name = rs.getString(4);
 				item = new Item(id, type, value, name);
 			}
@@ -128,6 +128,7 @@ public class WalletDaoCRUDimpl implements WalletDAO {
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
 		}
 		return item;
 	}
@@ -151,8 +152,13 @@ public class WalletDaoCRUDimpl implements WalletDAO {
 			stmt.setString(2, type);
 			stmt.setDouble(3, value);
 			stmt.setString(4, name);
-
+			
 			int uc = stmt.executeUpdate();
+			ResultSet rs = stmt.getGeneratedKeys(); 
+			if(rs.next()) {
+				int returnedId = rs.getInt(1); 
+				item.setId(returnedId);
+			}
 			if (uc == 1) {
 				System.out.println(id + " " + type + " " + value + " " + name + " added to your Virtual Wallet.");
 			}
@@ -191,33 +197,56 @@ public class WalletDaoCRUDimpl implements WalletDAO {
 
 	@Override
 	public List<Item> getAllItems() {
-		// TODO Auto-generated method stub
-		return null;
+		Item item = null;
+		List<Item> items = new ArrayList();
+		try {
+			Connection conn = DriverManager.getConnection(url, user, pass);
+			String sql = "SELECT * FROM item";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			//stmt.setInt(1, id);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Integer id = rs.getInt(1);
+				String type = rs.getString(2);
+				double value = rs.getInt(3);
+				String name = rs.getString(4);
+				item = new Item(id, type, value, name);
+				items.add(item);
+			}
+			rs.close();
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return items;
 	}
-
-	public void deleteItem(int id) {
+	public Item deleteItem(Item i) {
 		try {
 			Connection conn = DriverManager.getConnection(url, user, pass);
 			conn.setAutoCommit(false);
 			String sql = "delete FROM item WHERE id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, id);
+			stmt.setInt(1, i.getId());
 			int uc = stmt.executeUpdate();
 			if (uc == 1) {
-				System.out.println("Card " + id + " successfully deleted.");
+				System.out.println("Card " + i.getId() + " successfully deleted.");
 			}
 			conn.commit();
 			stmt.close();
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
 		}
-	}
+		return i;
+			}
+	
 
 	@Override
 	public Item editItem(Item item) {
 
-		//public Film updateFilm(Film film, int id) {
+		
 			Integer id = item.getId();
 			String type = item.getType();
 			double value = item.getValue();
@@ -226,12 +255,17 @@ public class WalletDaoCRUDimpl implements WalletDAO {
 			try {
 				conn = DriverManager.getConnection(url, user, pass);
 				conn.setAutoCommit(false);
-				String sql = "UPDATE item (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features) VALUES (?,?,?,?,?,?,?,?,?,?)";
+				String sql = 
+				"Update item SET " +
+						" type = ?," +
+						" value = ?," +
+						" name = ? " + 
+						" WHERE id = ?"; 
 				PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-				stmt.setInt(1, id);
-				stmt.setString(2, type);
-				stmt.setDouble(3, value);
-				stmt.setString(4, name);
+				stmt.setString(1, type);
+				stmt.setDouble(2, value);
+				stmt.setString(3, name);
+				stmt.setInt(4, id);
 				
 				int uc = stmt.executeUpdate();
 				if (uc == 1) {
