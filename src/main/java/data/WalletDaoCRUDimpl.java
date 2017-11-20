@@ -194,7 +194,8 @@ public class WalletDaoCRUDimpl implements WalletDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public void deleteItem(Item id) {
+
+	public void deleteItem(int id) {
 		try {
 			Connection conn = DriverManager.getConnection(url, user, pass);
 			conn.setAutoCommit(false);
