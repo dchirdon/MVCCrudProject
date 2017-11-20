@@ -11,7 +11,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.skilldistillery.film.data.Film;
 
 @Repository
 public class WalletDaoCRUDimpl implements WalletDAO {
@@ -195,7 +194,7 @@ public class WalletDaoCRUDimpl implements WalletDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public void deleteItem(int id) {
+	public void deleteItem(Item id) {
 		try {
 			Connection conn = DriverManager.getConnection(url, user, pass);
 			conn.setAutoCommit(false);
@@ -226,8 +225,7 @@ public class WalletDaoCRUDimpl implements WalletDAO {
 			try {
 				conn = DriverManager.getConnection(url, user, pass);
 				conn.setAutoCommit(false);
-				// Pending - sample: update film SET description = 'test' where id = 1023;
-				String sql = "UPDATE film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features) VALUES (?,?,?,?,?,?,?,?,?,?)";
+				String sql = "UPDATE item (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features) VALUES (?,?,?,?,?,?,?,?,?,?)";
 				PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 				stmt.setInt(1, id);
 				stmt.setString(2, type);
@@ -237,7 +235,7 @@ public class WalletDaoCRUDimpl implements WalletDAO {
 				int uc = stmt.executeUpdate();
 				if (uc == 1) {
 					System.out.println(id + " " + type + " " + value + " " + name
-							+ " added as a film.");
+							+ " added as a card.");
 				}
 				conn.commit();
 				stmt.close();
@@ -253,7 +251,7 @@ public class WalletDaoCRUDimpl implements WalletDAO {
 					}
 				}
 			}
-			return film;
+			return item;
 		}
 	}
-}
+
