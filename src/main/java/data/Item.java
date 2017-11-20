@@ -5,7 +5,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 public class Item {
-private Integer id;
+private Integer id = 0;
 	
 @Size(min=5, max=15 , message="Please enter type, Debit Card, Credit Card or Gift Card")
  private String type;
@@ -33,7 +33,6 @@ public Item(Integer id, String type, double value2, String name){
 //}
 
 public Item() {
-	id = 1234;
 }
 
 public int getId() {
