@@ -5,7 +5,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 public class Item {
-private int id;
+private Integer id;
 	
 @Size(min=5, max=15 , message="Please enter type, Debit Card, Credit Card or Gift Card")
  private String type;
@@ -16,15 +16,24 @@ private int id;
 
  private String name;
 
-public Item(){
- }
- 
-public Item(String type, int id, double value, String name) {
+public Item(Integer id, String type, double value2, String name){
 	super();
 	this.type = type;
 	this.id = id;
-	this.value = value;
+	this.value = value2;
 	this.name = name;
+ }
+ 
+//public Item(String type, int id, double value, String name) {
+//	super();
+//	this.type = type;
+//	this.id = id;
+//	this.value = value;
+//	this.name = name;
+//}
+
+public Item() {
+	// TODO Auto-generated constructor stub
 }
 
 public int getId() {

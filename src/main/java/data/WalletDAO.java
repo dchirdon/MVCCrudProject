@@ -7,5 +7,5 @@ public interface WalletDAO {
 	List<Item> getAllItems(); 
 	Item getItemById(int id); 
 	Item deleteItem(Item i); 
-	Item editItem(Item i); 
+	Item editItem(Item i);
 }
