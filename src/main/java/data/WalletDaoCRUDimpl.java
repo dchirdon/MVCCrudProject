@@ -11,6 +11,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.skilldistillery.film.data.Film;
+
 @Repository
 public class WalletDaoCRUDimpl implements WalletDAO {
 	private static String url = "jdbc:mysql://localhost:3306/virtualwalletdb";
@@ -26,28 +28,28 @@ public class WalletDaoCRUDimpl implements WalletDAO {
 		}
 	}
 
-//	@Override
-//	public String getItemById1(int id) {
-//		String type = null;
-//		try {
-//			Connection conn = DriverManager.getConnection(url, user, pass);
-//			String sql = "SELECT type FROM virtualwalletdb WHERE id = ?";
-//			PreparedStatement stmt = conn.prepareStatement(sql);
-//			stmt.setInt(1, id);
-//			ResultSet rs = stmt.executeQuery();
-//			if (rs.next()) {
-//				type = rs.getString(1);
-//			}
-//			rs.close();
-//			stmt.close();
-//			conn.close();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return type;
-//	}
+	// @Override
+	// public String getItemById1(int id) {
+	// String type = null;
+	// try {
+	// Connection conn = DriverManager.getConnection(url, user, pass);
+	// String sql = "SELECT type FROM virtualwalletdb WHERE id = ?";
+	// PreparedStatement stmt = conn.prepareStatement(sql);
+	// stmt.setInt(1, id);
+	// ResultSet rs = stmt.executeQuery();
+	// if (rs.next()) {
+	// type = rs.getString(1);
+	// }
+	// rs.close();
+	// stmt.close();
+	// conn.close();
+	// } catch (SQLException e) {
+	// e.printStackTrace();
+	// }
+	// return type;
+	// }
 
-	//@Override
+	// @Override
 	public List<Item> getItemByKey(String word) {
 		List<Item> items = new ArrayList<>();
 		Item item = new Item();
@@ -193,16 +195,65 @@ public class WalletDaoCRUDimpl implements WalletDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public Item deleteItem(Item i) {
-		// TODO Auto-generated method stub
-		return null;
+	public void deleteItem(int id) {
+		try {
+			Connection conn = DriverManager.getConnection(url, user, pass);
+			conn.setAutoCommit(false);
+			String sql = "delete FROM item WHERE id = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, id);
+			int uc = stmt.executeUpdate();
+			if (uc == 1) {
+				System.out.println("Card " + id + " successfully deleted.");
+			}
+			conn.commit();
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
-	public Item editItem(Item i) {
-		// TODO Auto-generated method stub
-		return null;
+	public Item editItem(Item item) {
+
+		//public Film updateFilm(Film film, int id) {
+			Integer id = item.getId();
+			String type = item.getType();
+			double value = item.getValue();
+			String name = item.getName();
+			Connection conn = null;
+			try {
+				conn = DriverManager.getConnection(url, user, pass);
+				conn.setAutoCommit(false);
+				// Pending - sample: update film SET description = 'test' where id = 1023;
+				String sql = "UPDATE film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features) VALUES (?,?,?,?,?,?,?,?,?,?)";
+				PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+				stmt.setInt(1, id);
+				stmt.setString(2, type);
+				stmt.setDouble(3, value);
+				stmt.setString(4, name);
+				
+				int uc = stmt.executeUpdate();
+				if (uc == 1) {
+					System.out.println(id + " " + type + " " + value + " " + name
+							+ " added as a film.");
+				}
+				conn.commit();
+				stmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("Operation failed.  Not committing.");
+				if (conn != null) {
+					try {
+						conn.rollback();
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
+				}
+			}
+			return film;
+		}
 	}
 }
