@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class WalletDaoCRUDimpl implements WalletDAO {
-	private static String url = "jdbc:mysql://localhost:3306/virtualwalletdb";
+	private static String url = "jdbc:mysql://localhost:3306/virtualwalletdb.mwb";
 	private String user = "walletuser";
 	private String pass = "walletuser";
 
@@ -53,7 +53,7 @@ public class WalletDaoCRUDimpl implements WalletDAO {
 		Item item = new Item();
 		try {
 			Connection conn = DriverManager.getConnection(url, user, pass);
-			String sql = "select id, type, value, name from virtualwalletdb where type like ? or name like ?";
+			String sql = "select id, type, value, name from virtualwalletdb.mwb where type like ? or name like ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, "%" + word + "%");
 			stmt.setString(2, "%" + word + "%");
@@ -111,7 +111,7 @@ public class WalletDaoCRUDimpl implements WalletDAO {
 		Item item = null;
 		try {
 			Connection conn = DriverManager.getConnection(url, user, pass);
-			String sql = "SELECT id, type, value, name FROM virtualwalletdb WHERE id = ?";
+			String sql = "SELECT id, type, value, name FROM virtualwalletdb.mwb WHERE id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
@@ -137,14 +137,14 @@ public class WalletDaoCRUDimpl implements WalletDAO {
 		String type = item.getType();
 		Double value = item.getValue();
 		String name = item.getName();
-		String url = "jdbc:mysql://localhost:3306/virtualwalletdb";
+		String url = "jdbc:mysql://localhost:3306/virtualwalletdb.mwb";
 		String user = "walletuser";
 		String pword = "walletuser";
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(url, user, pword);
 			conn.setAutoCommit(false);
-			String sql = "INSERT INTO virtualwalletdb (id, type, value, name) VALUES (?,?,?,?)";
+			String sql = "INSERT INTO virtualwalletdb.mwb (id, type, value, name) VALUES (?,?,?,?)";
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setInt(1, id);
 			stmt.setString(2, type);

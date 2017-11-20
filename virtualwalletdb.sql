@@ -5,18 +5,18 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema VirtualWalletDb
+-- Schema virtualwalletdb
 -- -----------------------------------------------------
 -- PUT STUFF IN IT FOOL
-DROP SCHEMA IF EXISTS `VirtualWalletDb` ;
+DROP SCHEMA IF EXISTS `virtualwalletdb` ;
 
 -- -----------------------------------------------------
--- Schema VirtualWalletDb
+-- Schema virtualwalletdb
 --
 -- PUT STUFF IN IT FOOL
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `VirtualWalletDb` DEFAULT CHARACTER SET utf8 ;
-USE `VirtualWalletDb` ;
+CREATE SCHEMA IF NOT EXISTS `virtualwalletdb` DEFAULT CHARACTER SET utf8 ;
+USE `virtualwalletdb` ;
 
 -- -----------------------------------------------------
 -- Table `Item`
@@ -47,7 +47,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- Data for table `Item`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `VirtualWalletDb`;
+USE `virtualwalletdb`;
 INSERT INTO `Item` (`id`, `type`, `value`, `name`) VALUES (1234, 'Credit Card', 30000, 'Wells Fargo');
 INSERT INTO `Item` (`id`, `type`, `value`, `name`) VALUES (1235, 'Gift Card', 200, 'Amazon');
 INSERT INTO `Item` (`id`, `type`, `value`, `name`) VALUES (1236, 'Debit Card', 3050, 'Navy Federal');

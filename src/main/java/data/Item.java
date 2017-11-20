@@ -33,7 +33,7 @@ public Item(Integer id, String type, double value2, String name){
 //}
 
 public Item() {
-	// TODO Auto-generated constructor stub
+	id = 1234;
 }
 
 public int getId() {
